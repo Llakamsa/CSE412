@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Make Payment</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+	<header>
+	    	<h1>Make a Payment</h1>
+	    	<nav><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></nav>
+	</header>
+
+	<main>
+	    	<form action="{{ url_for('make_payment', group_id=group.group_id) }}" method="POST">
+			<label for="amount_paid">Amount Paid ($):</label>
+			<input type="number" name="amount_paid" step="0.01" required>
+
+			<label for="payment_date">Payment Date:</label>
+			<input type="date" name="payment_date" required>
+
+			<label for="notes">Notes (optional):</label>
+			<textarea name="notes" rows="3"></textarea>
+
+			<button type="submit">Submit Payment</button>
+	    	</form>
+	</main>
+</body>
+</html>
+
